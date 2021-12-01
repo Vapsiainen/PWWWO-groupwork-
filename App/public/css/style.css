@@ -1,0 +1,28 @@
+body{
+    background-color: white;
+ }
+
+ h1 {
+     color: black;
+ }
+
+ p {
+     color:black;
+ }
+
+ title {
+     color:black;
+     text-align: center;
+ }
+
+#header {
+    background-color: white;  
+}
+
+#footer {
+    background-color: white;
+  }
+
+#nav {
+    text-align: center;
+}
