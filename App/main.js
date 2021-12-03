@@ -6,13 +6,13 @@ const express = require("express"),
   httpStatus = require("http-status-codes"),
   contactController = require("./controllers/contactController"),
   indexController = require("./controllers/indexController"),
-  employeesController = require("./controllers/employeesController")
-  errorController = require("./controllers/errorController");
+  employeesController = require("./controllers/employeesController"),
+  errorController = require("./controllers/errorController"),
+  Employee = require("./models/employees");
 
 const app = express();
 
 const mongoose = require('mongoose');
-Employee = require("./models/employees");
 
 mongoose.connect("mongodb+srv://pwwwo:cH9zeRJ8z0AegIQr@pwwwo-cluster.velp1.mongodb.net/company_db", {
   useNewUrlParser: true
