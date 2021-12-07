@@ -18,7 +18,6 @@ module.exports = {
             .then(user => {
                 if (user && user.password === req.body.password) {
                     res.locals.redirect = "/index";
-                    req.flash("success, logged in successfully!");
                     res.locals.user = user;
                     next();
                 } else {
