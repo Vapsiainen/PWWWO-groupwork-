@@ -1,4 +1,3 @@
-
 const Employee = require("../models/employees");
 
 exports.getAllEmployees = (req, res) => {
