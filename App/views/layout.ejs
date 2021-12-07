@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>App</title>
-    <link rel="stylesheet" href="/App/public/css/style.css">
-  </head>
-  <body>
-    <%- include('partials/header.ejs') %>
 
-    <%- include('partials/navigation.ejs') %>
+<head>
+  <meta charset="utf-8" />
+  <title>App</title>
+  <link rel="stylesheet" href="/App/public/css/style.css">
+</head>
 
-    <%- body %>
-    
-    <%- include('partials/footer.ejs') %>
-  </body>
+<body>
+  <%- include('partials/header.ejs') %>
+
+    <div class="flashes">
+      <% if (flashMessages) { %>
+      <% if (flashMessages.success) { %>
+      <div class="flash success">
+        <%= flashMessages.success %>
+      </div>
+      <% } else if (flashMessages.error) { %>
+      <div class="flash error">
+        <%= flashMessages.error %>
+      </div>
+      <% } %>
+      <% } %>
+    </div>
+
+  <%- body %>
+
+  <%- include('partials/footer.ejs') %>
+</body>
+
 </html>

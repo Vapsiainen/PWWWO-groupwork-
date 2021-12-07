@@ -1,24 +1,23 @@
 const mongoose = require("mongoose"),
-    employeeSchema = mongoose.Schema({
-        name: {
-            type: String,
-            required: true
-        },
+    loginSchema = mongoose.Schema({
         email: {
             type: String,
             required: true,
             lowercase: true
+        },
+        password: {
+            type: String,
+            required: true,
         }
     });
 
-employeeSchema.methods.getInfo = function () {
-    return `Name: ${this.name} Email: ${this.email}`;
+loginSchema.methods.getInfo = function () {
+    return `Email: ${this.email} Password: ${this.password}`;
 };
-employeeSchema.methods.findLocalEmployees = function () {
-    return this.model("Employee")
-        .find({ name: this.name })
+loginSchema.methods.findLocalLogin = function () {
+    return this.model("Login")
+        .find({ email: this.email })
         .exec();
 };
 
-
-module.exports = mongoose.model("Employee", employeeSchema);
+module.exports = mongoose.model("Login", loginSchema);
