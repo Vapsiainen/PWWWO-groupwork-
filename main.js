@@ -4,6 +4,7 @@ const express = require("express"),
   httpStatus = require("http-status-codes"),
   expressSession = require("express-session"),
   connectFlash = require("connect-flash"),
+  cookieParser = require("cookie-parser"),
   contactController = require("./controllers/contactController"),
   indexController = require("./controllers/indexController"),
   employeesController = require("./controllers/employeesController"),
@@ -33,13 +34,12 @@ app.use(
 );
 app.use(express.json());
 
-
 // R O U T E T
 app.use(
   expressSession({
     secret: "secret_passcode",
     cookie: {
-      maxAge: 4000000
+      maxAge: 1000 * 60 * 60 * 24
     },
     resave: false,
     saveUninitialized: false
@@ -50,6 +50,9 @@ app.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
   next();
 });
+
+
+app.use(cookieParser());
 
 app.get("/", loginController.login);
 app.post("/", loginController.authenticate, loginController.redirectView);
