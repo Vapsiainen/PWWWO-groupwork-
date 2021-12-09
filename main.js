@@ -59,10 +59,12 @@ app.post("/", loginController.authenticate, loginController.redirectView);
 
 app.get("/contact", contactController.getContactPage);
 app.get("/index", indexController.getIndexPage);
-app.get("/employees", employeesController.getAllEmployees,
-  (req, res, next) => {
-    res.render("employees", { employees: req.data })
-  });
+app.get("/employees", employeesController.index, employeesController.indexView);
+
+//app.get("/employees", employeesController.getAllEmployees,
+//  (req, res, next) => {
+//    res.render("employees", { employees: req.data })
+//  });
 
 app.use(errorController.logErrors);
 app.use(errorController.respond404);

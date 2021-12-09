@@ -1,5 +1,7 @@
 const mongoose = require("mongoose"),
-    employeeSchema = mongoose.Schema({
+    {Schema} = mongoose,
+
+    employeeSchema = new Schema({
         name: {
             type: String,
             required: true
@@ -7,7 +9,12 @@ const mongoose = require("mongoose"),
         email: {
             type: String,
             required: true,
-            lowercase: true
+            lowercase: true,
+            unique: true
+        },
+        department: {
+            type: String,
+            required: true
         }
     });
 
