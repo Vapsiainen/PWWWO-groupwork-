@@ -1,0 +1,20 @@
+<h2>Employees table</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% employees.forEach(employee => { %>
+        <tr>
+            <td><%= employee.name %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.department %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
