@@ -5,14 +5,8 @@ const mongoose = require("mongoose"),
 
     employeeSchema = new Schema({
         name: {
-            first: {
-                type: String,
-                required: true
-            },
-            last: {
-                type: String,
-                required: true
-            }
+            type: String,
+            required: true
         },
         email: {
             type: String,
@@ -27,10 +21,10 @@ const mongoose = require("mongoose"),
     });
 
 
-employeeSchema.virtual("fullName").get(function() {
+employeeSchema.virtual("mame").get(function () {
     return `${this.name.first} ${this.name.last}`;
 });
-    
+
 employeeSchema.methods.getInfo = function () {
     return `Name: ${this.name} Email: ${this.email}`;
 };
