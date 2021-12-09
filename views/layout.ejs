@@ -12,21 +12,21 @@
 
     <div class="flashes">
       <% if (flashMessages) { %>
-      <% if (flashMessages.success) { %>
-      <div class="flash success">
-        <%= flashMessages.success %>
-      </div>
-      <% } else if (flashMessages.error) { %>
-      <div class="flash error">
-        <%= flashMessages.error %>
-      </div>
-      <% } %>
-      <% } %>
+        <% if (flashMessages.success) { %>
+          <div class="flash success">
+            <%= flashMessages.success %>
+          </div>
+          <% } else if (flashMessages.error) { %>
+            <div class="flash error">
+              <%= flashMessages.error %>
+            </div>
+            <% } %>
+              <% } %>
     </div>
 
-  <%- body %>
+    <%- body %>
 
-  <%- include('partials/footer.ejs') %>
+      <%- include('partials/footer.ejs') %>
 </body>
 
 </html>
