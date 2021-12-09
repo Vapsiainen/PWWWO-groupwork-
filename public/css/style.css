@@ -7,6 +7,11 @@ body{
      
  }
 
+ h2 {
+    color: rgb(238, 16, 16);
+    
+}
+
  p {
      color:black;
  }
@@ -16,6 +21,17 @@ body{
      text-align: center;
  }
 
+ .form-submit-button {
+    background:#0066A2;
+    color:white;
+    border-style:outset;
+    border-color:#0066A2;
+    height:50px;
+    width:100px;
+    font:bold15px arial,sans-serif;
+    text-shadow:none;
+}
+
 #header {
     background-color: white;  
 }
@@ -23,7 +39,3 @@ body{
 #footer {
     background-color: white;
   }
-
-#nav {
-    text-align: center;
-}
