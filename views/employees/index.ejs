@@ -11,7 +11,12 @@
     <tbody>
         <% employees.forEach(employee => { %>
         <tr>
-            <td><%= employee.name %></td>
+            <td>
+                <a href="<%= `/employees/${employee._id}` %>">
+                <%= employee.fullName %>
+                </a>
+            </td>
+
             <td><%= employee.email %></td>
             <td><%= employee.department %></td>
         </tr>

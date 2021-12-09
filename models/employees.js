@@ -1,10 +1,18 @@
+"use strict";
+
 const mongoose = require("mongoose"),
-    {Schema} = mongoose,
+    { Schema } = mongoose,
 
     employeeSchema = new Schema({
         name: {
-            type: String,
-            required: true
+            first: {
+                type: String,
+                required: true
+            },
+            last: {
+                type: String,
+                required: true
+            }
         },
         email: {
             type: String,
@@ -18,9 +26,15 @@ const mongoose = require("mongoose"),
         }
     });
 
+
+employeeSchema.virtual("fullName").get(function() {
+    return `${this.name.first} ${this.name.last}`;
+});
+    
 employeeSchema.methods.getInfo = function () {
     return `Name: ${this.name} Email: ${this.email}`;
 };
+
 employeeSchema.methods.findLocalLogin = function () {
     return this.model("Login")
         .find({ name: this.name })
