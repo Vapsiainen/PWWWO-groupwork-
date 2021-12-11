@@ -4,32 +4,189 @@ body{
 
  h1 {
      color: black;
+     font-family: Arial, Helvetica, sans-serif;
+     text-align: center;
      
  }
 
  h2 {
-    color: rgb(238, 16, 16);
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
     
 }
 
  p {
      color:black;
+     font-family: Arial, Helvetica, sans-serif;
  }
 
  title {
      color:black;
-     text-align: center;
+     font-family: Arial, Helvetica, sans-serif;
  }
 
- .form-submit-button {
-    background:#0066A2;
+ #nav {
+    background-color: rgb(89, 151, 201);
+    display: block;
+    margin: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+ #nav a {
+    display: inline-block;
+    position: relative;
+    color: white;
+    padding: 13px;
+    text-decoration: none;
+    font-size: 22px;
+    border-radius: 5px;
+    text-transform: none;
+    font-family: 'Archivo Black', sans-serif;
+    
+  }
+
+  #nav a:hover {
+    color: rgb(241, 176, 102);
+  }
+
+ #button {
+    background:#0476b8;
     color:white;
-    border-style:outset;
-    border-color:#0066A2;
-    height:50px;
-    width:100px;
-    font:bold15px arial,sans-serif;
-    text-shadow:none;
+    font-family: Arial, Helvetica, sans-serif;
+    height:35px;
+    width:90px;
+    border-radius: 10%;
+    margin-top: 15px;
+}
+
+#button:hover {
+    opacity: 0.8;
+  }
+
+#login {
+    width: 500px;
+    border: 2px solid rgb(206, 205, 205); 
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 170px ;
+    margin-left: 10%;
+    box-shadow: 0 0 3px rgb(206, 205, 205);
+}
+
+#email {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;  
+}
+
+#inputEmail {
+    border: 2px solid rgb(146, 146, 146); 
+    border-radius: 3px;
+    box-shadow: 0 0 1px rgb(206, 205, 205);
+    padding: 6px;
+    width: 300px;
+}
+
+#inputname {
+    border: 2px solid rgb(146, 146, 146); 
+    border-radius: 3px;
+    box-shadow: 0 0 1px rgb(206, 205, 205);
+    padding: 6px;
+    width: 300px;
+}
+
+#inputDepartment {
+    border: 2px solid rgb(146, 146, 146); 
+    border-radius: 3px;
+    box-shadow: 0 0 1px rgb(206, 205, 205);
+    padding: 6px;
+    width: 300px;
+}
+
+#password {
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 14px;
+}
+
+#inputPassword {
+    border: 2px solid rgb(206, 205, 205); 
+    border-radius: 3px;
+    box-shadow: 0 0 1px rgb(206, 205, 205);
+    padding: 6px;
+    width: 300px;
+}
+
+#createEmployee {
+    margin-left: 50px;
+}
+
+#employeeName {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 5px;
+}
+
+#employeeEmail {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+#employeeDepartment {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+#createButton {
+    background:#0476b8;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    height:35px;
+    width:90px;
+    border-radius: 10%;
+    margin-top: 15px;
+}
+
+#createButton:hover {
+    opacity: 0.8;
+  }
+
+#employeesTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 50px;
+  }
+  
+  #employeesTable td, #employeesTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #employeesTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #employeesTable tr:hover {background-color: #ddd;}
+  
+  #employeesTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(89, 151, 201);
+  }
+
+#tableName {
+    margin-right: 200px;
+    color: white;
+}
+
+#tableEmail {
+    margin-right: 200px;
+    color: white;
+}
+
+#tableDepartment {
+    margin-right: 200px;
+    color: white;
 }
 
 #header {
