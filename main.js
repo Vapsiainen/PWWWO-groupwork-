@@ -1,8 +1,6 @@
 require('dotenv').config();
 const express = require("express"),
   layouts = require("express-ejs-layouts"),
-  http = require("http"),
-  httpStatus = require("http-status-codes"),
   expressSession = require("express-session"),
   connectFlash = require("connect-flash"),
   cookieParser = require("cookie-parser"),
