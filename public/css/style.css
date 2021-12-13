@@ -70,7 +70,7 @@ body{
     border-radius: 5px;
     padding: 20px;
     margin-top: 170px ;
-    margin-left: 10%;
+    margin-left: 32%;
     box-shadow: 0 0 3px rgb(206, 205, 205);
 }
 
@@ -118,6 +118,7 @@ body{
 
 #createEmployee {
     margin-left: 50px;
+    margin-top: 80px;
 }
 
 #employeeName {
@@ -190,9 +191,12 @@ body{
 }
 
 #header {
-    background-color: white;  
+    background-color: rgb(174, 200, 240);
+    height: 80px; 
 }
 
 #footer {
-    background-color: white;
+    background-color: rgb(174, 200, 240);
+    height: 80px;
+    margin-top: 30%;
   }
