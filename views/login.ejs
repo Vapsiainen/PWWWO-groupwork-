@@ -1,5 +1,7 @@
 <div id="login">
     <h2>Login</h2>
+    <%= flashMessages.success %>
+    <%= flashMessages.error %><br><br>
     <form action="/" method="POST">
         <label id="email" for="inputEmail"><b>Email address</b></label><br>
         <input type="email" name="email" id="inputEmail" placeholder="Email address" required><br>

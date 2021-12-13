@@ -12,21 +12,23 @@ module.exports = {
         res.render("login");
     },
     authenticate: (req, res, next) => {
-        User.findOne({
-            email: req.body.email
-        })
+        User.findOne({ email: req.body.email })
             .then(user => {
-                if (user && user.password === req.body.password) {
-                    res.locals.redirect = "/index";
-                    session=req.session;
-                    console.log(req.session)
-                    res.locals.user = user;
-                    next();
+                if (user) {
+                    user.passwordComparison(req.body.password).then(passwordsMatch => {
+                        if (passwordsMatch) {
+                            res.locals.redirect = "/index";
+                            session = req.session;
+                            console.log(req.session)
+                            res.locals.user = user;
+                        } else {
+                            req.flash("error", "Failed to log in user account: Incorrect email or password!");
+                            res.locals.redirect = "/";
+                        }
+                        next();
+                    });
                 } else {
-                    req.flash(
-                        "error",
-                        "Your email or password is incorrect. Please try again or contact your system administrator!"
-                    );
+                    req.flash("error", "Failed to log in user account: User account not found.");
                     res.locals.redirect = "/";
                     next();
                 }
@@ -43,10 +45,9 @@ module.exports = {
     },
 
     logout: (req, res, next) => {
-        req.logout();
-        req.flash("success", "You have been logged out!");
-        res.locals.redirect = "/";
+        //req.logout();
+        res.render("login");
         next();
-      }
+    }
 }
 

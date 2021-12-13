@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express"),
   layouts = require("express-ejs-layouts"),
   http = require("http"),
@@ -16,11 +17,11 @@ const app = express();
 
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://pwwwo:cH9zeRJ8z0AegIQr@pwwwo-cluster.velp1.mongodb.net/company_db", {
+let URL = process.env.DB_URL;
+mongoose.connect(URL, {
   useNewUrlParser: true
 });
 const db = mongoose.connection;
-
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -55,6 +56,7 @@ app.use(cookieParser());
 
 // G E T
 app.get("/", loginController.login);
+app.get("/logout", loginController.logout);
 app.get("/contact", contactController.getContactPage);
 app.get("/index", indexController.getIndexPage);
 app.get("/employees", employeesController.index, employeesController.indexView);
@@ -64,7 +66,6 @@ app.get("employees/:id", employeesController.show, employeesController.showView)
 // P O S T
 app.post("/", loginController.authenticate, loginController.redirectView);
 app.post("/employees/create", employeesController.create, employeesController.redirectView);
-
 
 app.use(errorController.logErrors);
 app.use(errorController.respond404);
