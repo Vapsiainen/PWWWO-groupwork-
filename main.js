@@ -68,10 +68,11 @@ app.get("/index", indexController.getIndexPage);
 app.get("/employees", employeesController.index, employeesController.indexView);
 app.get("/employees/new", employeesController.new);
 app.post("/employees/create", employeesController.create, employeesController.redirectView);
-app.post("/employees/:id/edit", employeesController.edit, employeesController.showView);
-app.post("/employees/:id/update", employeesController.update, employeesController.redirectView);
+app.get("/employees/:id/edit", employeesController.edit);
+app.put("/employees/:id/update", employeesController.update, employeesController.redirectView);
 app.delete("/employees/:id/delete", employeesController.delete, employeesController.redirectView);
 app.get("/employees/:id", employeesController.show, employeesController.showView);
+
 
 app.post("/", loginController.authenticate, loginController.redirectView);
 
