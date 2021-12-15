@@ -1,21 +1,23 @@
-<h1>Employee data for <%= employee.name %></h1>
+<div id="employeeData">
+<h2>Employee data for <%= employee.name %></h2>
 
 <table class="table">
 
     <tr>
-        <th>Name</th>
+        <th><p id="data">Name</p></th>
         <td><%= employee.name %></td>
     </tr>
     <tr>
-        <th>Email</th>
+        <th><p id="data">Emai</p></th>
         <td><%= employee.email %></td>
     </tr>
     <tr>
-        <th>Department</th>
+        <th><p id="data">Department</p></th>
         <td><%= employee.department %></td>
     </tr>
 
 </table>
+</div>
 
 <div>
     <a class="button" href="/employees">View all employees</a>

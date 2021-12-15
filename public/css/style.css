@@ -74,6 +74,25 @@ body{
     opacity: 0.8;
   }
 
+  .button:link, .button:visited {
+    background-color: #0476b8;
+    color: white;
+    border: 1.5px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 7%;
+    margin-top: 10px;
+    margin-left: 50px;
+  }
+  
+  .button:hover, .button:active {
+    opacity: 0.8;
+  }
+
 #login {
     width: 500px;
     border: 2px solid rgb(206, 205, 205); 
@@ -207,6 +226,30 @@ body{
     margin-right: 50px;
     color: white;
 }
+
+#employeeData {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#employeeData td, #employeeData th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #employeeData th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(89, 151, 201);
+  }
+
+  #data {
+    color: white;
+  }
 
 #header {
     background-color: rgb(174, 200, 240);
