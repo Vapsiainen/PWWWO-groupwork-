@@ -103,7 +103,7 @@ body{
     box-shadow: 0 0 3px rgb(206, 205, 205);
 }
 
-#email {
+#formheader {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;  
 }
@@ -132,11 +132,6 @@ body{
     width: 300px;
 }
 
-#password {
-    font-family: Arial, Helvetica, sans-serif; 
-    font-size: 14px;
-}
-
 #inputPassword {
     border: 2px solid rgb(206, 205, 205); 
     border-radius: 3px;
@@ -148,23 +143,6 @@ body{
 #createEmployee {
     margin-left: 50px;
     margin-top: 80px;
-}
-
-#employeeName {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-right: 5px;
-}
-
-#employeeEmail {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 20px;
-    margin-right: 5px;
-}
-
-#employeeDepartment {
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 20px;
-    margin-right: 5px;
 }
 
 #createButton {

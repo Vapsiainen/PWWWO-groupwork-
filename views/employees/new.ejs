@@ -1,19 +1,12 @@
-<div id="createEmployee" class="data-form">
-
+<div id="createEmployee">
+    <h2>Create a new employee:</h2>
     <form action="/employees/create" method="POST">
-
-        <h2>Create a new employee:</h2>
-
-        <label id="employeeName" for="inputname"><b>Name</b></label>
-        <input type="text" name="name" id="inputname" placeholder="Full name" autofocus>
-
-        <label id="employeeEmail" for="inputEmail"><b>Email</b></label>
-        <input type="text" name="email" id="inputEmail" placeholder="Email" autofocus>
-
-        <label id="employeeDepartment" for="inputDepartment"><b>Working department</b></label>
-        <input type="text" name="department" id="inputDepartment" placeholder="Department" autofocus>
-        
-        <br /><button id="createButton" class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+        <label id="formheader" for="inputname"><b>Name</b></label><br>
+        <input type="text" name="name" id="inputname" placeholder="Full name" autofocus><br><br>
+        <label id="formheader" for="inputEmail"><b>Email</b></label><br>
+        <input type="text" name="email" id="inputEmail" placeholder="Email" autofocus><br><br>
+        <label id="formheader" for="inputDepartment"><b>Working department</b></label><br>
+        <input type="text" name="department" id="inputDepartment" placeholder="Department" autofocus><br>
+        <button id="createButton" class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
     </form>
-
 </div>
