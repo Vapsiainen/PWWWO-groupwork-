@@ -197,6 +197,14 @@ body{
     margin-right: 200px;
     color: white;
 }
+#tableEdit {
+    margin-right: 20px;
+    color: white;
+}
+#tableDelete {
+    margin-right: 50px;
+    color: white;
+}
 
 #header {
     background-color: rgb(174, 200, 240);
