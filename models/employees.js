@@ -21,9 +21,9 @@ const mongoose = require("mongoose"),
     });
 
 
-employeeSchema.virtual("mame").get(function () {
-    return `${this.name.first} ${this.name.last}`;
-});
+//employeeSchema.virtual("name").get(function () {
+//    return `${this.name}`;
+//});
 
 employeeSchema.methods.getInfo = function () {
     return `Name: ${this.name} Email: ${this.email}`;

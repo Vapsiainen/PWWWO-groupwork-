@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require("express"),
   layouts = require("express-ejs-layouts"),
+  methodOverride = require("method-override"),
   expressSession = require("express-session"),
   connectFlash = require("connect-flash"),
   cookieParser = require("cookie-parser"),
@@ -12,14 +13,14 @@ const express = require("express"),
   Employee = require("./models/employees");
 
 const app = express();
-
 const mongoose = require('mongoose');
+const db = mongoose.connection;
+
 
 let URL = process.env.DB_URL;
 mongoose.connect(URL, {
   useNewUrlParser: true
 });
-const db = mongoose.connection;
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -31,9 +32,16 @@ app.use(
     extended: false
   })
 );
+
 app.use(express.json());
 
-// R O U T E T
+app.use
+  (methodOverride("_method", {
+    methods: ["POST", "GET"]
+  })
+);
+
+//SESSIONS AND COOKIES
 app.use(
   expressSession({
     secret: "secret_passcode",
@@ -49,21 +57,23 @@ app.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
   next();
 });
-
 app.use(cookieParser());
 
-// G E T
+
+// R O U T E T
 app.get("/", loginController.login);
 app.get("/logout", loginController.logout);
 app.get("/contact", contactController.getContactPage);
 app.get("/index", indexController.getIndexPage);
 app.get("/employees", employeesController.index, employeesController.indexView);
 app.get("/employees/new", employeesController.new);
+app.post("/employees/create", employeesController.create, employeesController.redirectView);
+app.post("/employees/:id/edit", employeesController.edit);
+app.post("/employees/:id/update", employeesController.update, employeesController.redirectView);
+app.delete("/employees/:id/delete", employeesController.delete, employeesController.redirectView);
 app.get("employees/:id", employeesController.show, employeesController.showView);
 
-// P O S T
 app.post("/", loginController.authenticate, loginController.redirectView);
-app.post("/employees/create", employeesController.create, employeesController.redirectView);
 
 app.use(errorController.logErrors);
 app.use(errorController.respond404);

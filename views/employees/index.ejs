@@ -1,6 +1,9 @@
 <div id="employeesTable">
+
     <h2>Employees table</h2>
+
     <table class="table">
+
         <thead>
             <tr>
                 <th><p id="tableName">Name</p></th>
@@ -8,20 +11,34 @@
                 <th><p id="tableDepartment">Department</p></th>
             </tr>
         </thead>
+
 </div>
 
     <tbody>
         <% employees.forEach(employee => { %>
         <tr>
+
             <td>
                 <a href="<%= `/employees/${employee._id}` %>">
-                <%= employee.fullName %>
+                <%= employee.name %>
                 </a>
             </td>
 
             <td><%= employee.email %></td>
+
             <td><%= employee.department %></td>
+
+            <td>
+                <a href="<%=`/employees/${employee._id}/edit` %>"></a>
+                Edit
+            </td>
+
+        <td>
+          <a href="<%=`/employees/${employee._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+        </td>
+
         </tr>
         <% }); %>
     </tbody>
+
 </table>

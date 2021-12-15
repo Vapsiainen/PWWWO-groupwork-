@@ -22,7 +22,7 @@ module.exports = {
     },
     create: (req, res, next) => {
         let employeeParams = {
-            name: req.body.first + req.body.last,
+            name: req.body.name,
             email: req.body.email,
             department: req.body.department
         };
@@ -56,6 +56,51 @@ module.exports = {
     },
     showView: (req, res) => {
         res.render("employees/show");
+    },
+    edit: (req, res, next) => {
+        let employeeId = req.params.id;
+        Employee.findById(employeeId)
+        .then(employee => {
+            res.render("employees/edit", {
+                employee: employee
+            });
+        })
+        .catch(error => {
+            console.log(`Error fetching employee by ID: ${error.message}`);
+            next(error);
+        });
+    },
+    update: (req, res, next) => {
+        let employeeId = req.params.id,
+        employeeParams = {
+            name: req.body.name,
+            email: req.body.name,
+            department: req.body.department
+        };
+
+        Employee.findByIdAndUpdate(employeeId, {
+            $set: employeeParams
+        })
+        .then(employee => {
+            res.locals.redirect = `/employees/${employeeId}`;
+            res.locals.employee = employee;
+            next();
+        })
+        .catch(error => {
+            console.log(`Error fetching employee by ID: ${error.message}`);
+        });
+    },
+    delete: (req, res, next) => {
+        let employeeId = req.params.id;
+        Employee.findByIdAndRemove(employeeId)
+        .then(() => {
+            res.locals.redirect = "/employees";
+            next();
+        })
+        .catch(error => {
+            console.log(`Error deleting employee by ID: ${error.message}`);
+            next();
+        });
     }
 };
 
