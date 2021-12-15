@@ -1,3 +1,4 @@
+<%- include('partials/navigation.ejs') %>
 <div class="data-form" id="editEmployee">
 
     <form class="form-signin" method="POST" action="<%=`/employees/${employee._id}/update?_method=PUT`%>">
@@ -13,7 +14,7 @@
         <label id="employeeDepartment" for="inputDepartment"><b>Working department</b></label>
         <input class="form-control" type="text" name="department" id="inputDepartment" value="<%= employee.department %>" placeholder="Department" autofocus>
 
-        <br /><button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+        <br /><button id="button" class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
 
     </form>
 
