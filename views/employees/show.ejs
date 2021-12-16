@@ -1,33 +1,47 @@
 <%- include('partials/navigation.ejs') %>
-<div id="employeeData">
-<h2>Employee data for <%= employee.name %></h2>
+    <div id="employeeData">
+        <h2>Employee data for
+            <%= employee.name %>
+        </h2>
 
-<table class="table">
+        <table class="table">
 
-    <tr>
-        <th><p id="data">Name</p></th>
-        <td><%= employee.name %></td>
-    </tr>
-    <tr>
-        <th><p id="data">Emai</p></th>
-        <td><%= employee.email %></td>
-    </tr>
-    <tr>
-        <th><p id="data">Department</p></th>
-        <td><%= employee.department %></td>
-    </tr>
+            <tr>
+                <th>
+                    <p id="data">Name</p>
+                </th>
+                <td>
+                    <%= employee.name %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <p id="data">Emai</p>
+                </th>
+                <td>
+                    <%= employee.email %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <p id="data">Department</p>
+                </th>
+                <td>
+                    <%= employee.department %>
+                </td>
+            </tr>
 
-</table>
-</div>
+        </table>
+    </div>
 
-<div>
-    <a class="button" href="/employees">View all employees</a>
-</div>
+    <div>
+        <a class="button" href="/employees">View all employees</a>
+    </div>
 
-<div>
-    <a class="button" href="<%=`/employees/${employee._id}/edit`%>">Edit employee details</a>
-</div>
+    <div>
+        <a class="button" href="<%=`/employees/${employee._id}/edit`%>">Edit employee details</a>
+    </div>
 
-<div>
-    <a class="button" href="<%= `/employees/${employee._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
-</div>
+    <div>
+        <a class="button" href="<%= `/employees/${employee._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+    </div>

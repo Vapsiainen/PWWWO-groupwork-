@@ -17,6 +17,6 @@ exports.respond500 = (error, req, res, next) => {
     let errorCode = httpStatus.StatusCodes.INTERNAL_SERVER_ERROR;
     res.status(errorCode);
     res.sendFile(`./public/html/${errorCode}.html`, {
-        root : "./"
+        root: "./"
     });
 };

@@ -6,7 +6,6 @@ const User = require("../models/login"),
         };
     };
 
-
 module.exports = {
     login: (req, res) => {
         res.render("login");
@@ -49,5 +48,4 @@ module.exports = {
         res.render("login");
         next();
     }
-}
-
+};

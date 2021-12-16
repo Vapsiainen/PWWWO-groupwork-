@@ -1,5 +1,3 @@
-"use strict";
-
 const mongoose = require("mongoose"),
     { Schema } = mongoose,
 
@@ -20,16 +18,11 @@ const mongoose = require("mongoose"),
         }
     });
 
-
-//employeeSchema.virtual("name").get(function () {
-//    return `${this.name}`;
-//});
-
-employeeSchema.methods.getInfo = function () {
+employeeSchema.methods.getInfo = function() {
     return `Name: ${this.name} Email: ${this.email}`;
 };
 
-employeeSchema.methods.findLocalLogin = function () {
+employeeSchema.methods.findLocalLogin = function() {
     return this.model("Login")
         .find({ name: this.name })
         .exec();

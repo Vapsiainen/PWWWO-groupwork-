@@ -1,16 +1,15 @@
 require('dotenv').config();
 const express = require("express"),
-  layouts = require("express-ejs-layouts"),
-  methodOverride = require("method-override"),
-  expressSession = require("express-session"),
-  connectFlash = require("connect-flash"),
-  cookieParser = require("cookie-parser"),
-  contactController = require("./controllers/contactController"),
-  indexController = require("./controllers/indexController"),
-  employeesController = require("./controllers/employeesController"),
-  errorController = require("./controllers/errorController"),
-  loginController = require("./controllers/loginController"),
-  Employee = require("./models/employees");
+    layouts = require("express-ejs-layouts"),
+    methodOverride = require("method-override"),
+    expressSession = require("express-session"),
+    connectFlash = require("connect-flash"),
+    cookieParser = require("cookie-parser"),
+    contactController = require("./controllers/contactController"),
+    indexController = require("./controllers/indexController"),
+    employeesController = require("./controllers/employeesController"),
+    errorController = require("./controllers/errorController"),
+    loginController = require("./controllers/loginController");
 
 const app = express();
 const mongoose = require('mongoose');
@@ -19,7 +18,7 @@ const db = mongoose.connection;
 
 let URL = process.env.DB_URL;
 mongoose.connect(URL, {
-  useNewUrlParser: true
+    useNewUrlParser: true
 });
 
 app.set("port", process.env.PORT || 3000);
@@ -28,34 +27,32 @@ app.set("view engine", "ejs");
 app.use('/public', express.static('public'));
 app.use(layouts);
 app.use(
-  express.urlencoded({
-    extended: false
-  })
+    express.urlencoded({
+        extended: false
+    })
 );
 
 app.use(express.json());
 
-app.use
-  (methodOverride("_method", {
+app.use(methodOverride("_method", {
     methods: ["POST", "GET"]
-  })
-);
+}));
 
 //SESSIONS AND COOKIES
 app.use(
-  expressSession({
-    secret: "secret_passcode",
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24
-    },
-    resave: false,
-    saveUninitialized: false
-  })
+    expressSession({
+        secret: "secret_passcode",
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24
+        },
+        resave: false,
+        saveUninitialized: false
+    })
 );
 app.use(connectFlash());
 app.use((req, res, next) => {
-  res.locals.flashMessages = req.flash();
-  next();
+    res.locals.flashMessages = req.flash();
+    next();
 });
 app.use(cookieParser());
 
@@ -81,9 +78,9 @@ app.use(errorController.respond404);
 app.use(errorController.respond500);
 
 db.once("open", () => {
-  console.log("Successfully connected to MongoDB using Mongoose!");
+    console.log("Successfully connected to MongoDB using Mongoose!");
 });
 
 app.listen(app.get("port"), () => {
-  console.log(`Server running at http://localhost:${app.get("port")}`);
+    console.log(`Server running at http://localhost:${app.get("port")}`);
 });

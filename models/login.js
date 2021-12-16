@@ -12,10 +12,10 @@ const mongoose = require("mongoose"),
         }
     });
 
-loginSchema.methods.getInfo = function () {
+loginSchema.methods.getInfo = function() {
     return `Email: ${this.email} Password: ${this.password}`;
 };
-loginSchema.methods.findLocalLogin = function () {
+loginSchema.methods.findLocalLogin = function() {
     return this.model("Login")
         .find({ email: this.email })
         .exec();
@@ -24,20 +24,20 @@ loginSchema.methods.findLocalLogin = function () {
 loginSchema.pre("save", function(next) {
     let user = this;
     bcrypt
-      .hash(user.password, 10)
-      .then(hash => {
-        user.password = hash;
-        next();
-      })
-      .catch(error => {
-        console.log(`Error in hashing password: ${error.message}`);
-        next(error);
-      });
-  });
-  
-  loginSchema.methods.passwordComparison = function(inputPassword) {
+        .hash(user.password, 10)
+        .then(hash => {
+            user.password = hash;
+            next();
+        })
+        .catch(error => {
+            console.log(`Error in hashing password: ${error.message}`);
+            next(error);
+        });
+});
+
+loginSchema.methods.passwordComparison = function(inputPassword) {
     let user = this;
     return bcrypt.compare(inputPassword, user.password);
-  };
+};
 
 module.exports = mongoose.model("Login", loginSchema);

@@ -1,3 +1,3 @@
 exports.getContactPage = (req, res) => {
-  res.render("contact");
+    res.render("contact");
 };

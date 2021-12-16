@@ -1,46 +1,60 @@
 <%- include('partials/navigation.ejs') %>
-<div id="employeesTable">
+    <div id="employeesTable">
 
-    <h2>Employees table</h2>
+        <h2>Employees table</h2>
 
-    <table class="table">
+        <table class="table">
 
-        <thead>
-            <tr>
-                <th><p id="tableName">Name</p></th>
-                <th><p id="tableEmail">Email</p></th>
-                <th><p id="tableDepartment">Department</p></th>
-                <th><p id="tableEdit">Edit</p></th>
-                <th><p id="tableDelete">Delete</p></th>
-            </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th>
+                        <p id="tableName">Name</p>
+                    </th>
+                    <th>
+                        <p id="tableEmail">Email</p>
+                    </th>
+                    <th>
+                        <p id="tableDepartment">Department</p>
+                    </th>
+                    <th>
+                        <p id="tableEdit">Edit</p>
+                    </th>
+                    <th>
+                        <p id="tableDelete">Delete</p>
+                    </th>
+                </tr>
+            </thead>
 
 
-    <tbody>
-        <% employees.forEach(employee => { %>
-        <tr>
+            <tbody>
+                <% employees.forEach(employee => { %>
+                    <tr>
 
-            <td>
-                <a id="tableLink" href="<%= `/employees/${employee._id}` %>">
-                <%= employee.name %>
-                </a>
-            </td>
+                        <td>
+                            <a id="tableLink" href="<%= `/employees/${employee._id}` %>">
+                                <%= employee.name %>
+                            </a>
+                        </td>
 
-            <td><%= employee.email %></td>
+                        <td>
+                            <%= employee.email %>
+                        </td>
 
-            <td><%= employee.department %></td>
+                        <td>
+                            <%= employee.department %>
+                        </td>
 
-            <td>
-                <a id="tableLink" href="<%=`/employees/${employee._id}/edit` %>">Edit</a>
-            </td>
+                        <td>
+                            <a id="tableLink" href="<%=`/employees/${employee._id}/edit` %>">Edit</a>
+                        </td>
 
-        <td>
-          <a id="tableLink" href="<%=`/employees/${employee._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
-        </td>
+                        <td>
+                            <a id="tableLink" href="<%=`/employees/${employee._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+                        </td>
 
-        </tr>
-        <% }); %>
-    </tbody>
+                    </tr>
+                    <% }); %>
+            </tbody>
 
-</table>
-</div>
+        </table>
+    </div>
