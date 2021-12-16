@@ -27,7 +27,7 @@ module.exports = {
                         next();
                     });
                 } else {
-                    req.flash("error", "Failed to log in user account: User account not found.");
+                    req.flash("error", "Failed to log in user account: Incorrect email or password!");
                     res.locals.redirect = "/";
                     next();
                 }
